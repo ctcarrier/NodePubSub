@@ -1,0 +1,28 @@
+{
+  "name": "NodePubSub",
+  "version": "0.0.0",
+  "description": "Simple NodeJS pubsub",
+  "main": "rest_server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "~1.8.1",
+    "restify": "~2.6.1",
+    "supertest": "~0.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ctcarrier/NodePubSub.git"
+  },
+  "author": "Chris Carrier",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ctcarrier/NodePubSub/issues"
+  },
+  "homepage": "https://github.com/ctcarrier/NodePubSub"
+}
