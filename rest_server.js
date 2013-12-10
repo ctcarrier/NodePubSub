@@ -3,18 +3,6 @@ var restify = require('restify');
 var topics = {};
 var subscriptions = {};
 
-function getTopic(req, res, next) {
-
-    if (req.params.name in topics) {
-        res.send(200, {
-            name: req.params.name
-        });
-    } else {
-        res.send(404);
-    }
-    return next();
-}
-
 function saveTopic(req, res, next) {
     if (req.body.name in topics) {
         res.send(200, req.body);
@@ -91,16 +79,6 @@ function removeSubscription(req, res, next) {
     return next();
 }
 
-function pong(req, res, next) {
-    res.send(200, "Pong: " + req.header('If-Modified-Since'));
-    return next();
-}
-
-function respond(req, res, next) {
-    res.send('hello ' + req.params.name);
-    return next();
-}
-
 var server = restify.createServer();
 
 server.use(restify.bodyParser({
@@ -109,21 +87,18 @@ server.use(restify.bodyParser({
 server.use(restify.authorizationParser());
 server.use(function authenticate(req, res, next) {
     if (!req.authorization.basic) {
-        return next(new restify.NotAuthorizedError());
+        return next(new restify.NotAuthorizedError('Please provide Authorization header'));
     } else {
         return next();
     }
 });
 
-server.get('/topics/:name', getTopic);
 server.put('/topics/:name/subscriptions', addSubscription);
 server.del('/topics/:name/subscriptions', removeSubscription);
 server.post('/topics', saveTopic);
 server.post('/topics/:name/messages', saveMessage);
 server.get('/topics/:name/messages', getMessagesByTopic);
 server.get('/messages', getMessages);
-server.get('/ping', pong);
-server.get('/hello/:name', respond);
 
 server.listen(8080, function () {
     console.log('%s listening at %s', server.name, server.url);

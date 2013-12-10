@@ -38,6 +38,19 @@ describe("The PubSub service", function () {
         }, 500);
     });
 
+    it('requires an Authorization header', function (done) {
+        request(url)
+            .post('/topics/' + topicName1 + '/messages')
+            .set('Content-Type', 'application/json')
+            .set('Accept', 'application/json')
+            .send(message1)
+            .expect(403)
+            .end(function (err, res) {
+                if (err) return done(err); 
+                return done();
+            });
+    });
+
     it('should create a new message in topic1', function (done) {
         request(url)
             .post('/topics/' + topicName1 + '/messages')
