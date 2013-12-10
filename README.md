@@ -13,6 +13,7 @@ mocha
 <li>Post new messages to topics</li>
 <li>Post/Delete subscriptions</li>
 <li>Get messages by topic or for all topics based on subscriptions</li>
+</ul>
 
 Users are identified using the 'Authorization' HTTP header using basic auth. For example the user 'test' with password 'test' would have an Authorization header like:
 
