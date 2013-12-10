@@ -1,6 +1,6 @@
 <h1>NodeJS Pub Sub Web Service Assignment</h1>
 <p>This is an extremely simple web service which exposes some HTTP endpoints to do some simple pub sub type tasks</p>
-
+<p>This code is currently up and running on Heroku at http://rocky-citadel-3618.herokuapp.com</p>
 <h2>Run the app</h2>
 node rest_server.js
 
