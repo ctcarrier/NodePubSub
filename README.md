@@ -36,7 +36,7 @@ There is no push system. This would normally be accomplished in HTTP with some k
 <h3>Create Topic</h3>
 POST /topics
 {
-	"name": <TOPIC_NAME>
+	"name": "<SOME_NAME>"
 }
 
 <h3>Create Subscription</h3>
@@ -54,5 +54,5 @@ GET /topics/:name/messages
 <h3>Create a new message</h3>
 POST /topics/:name/messages
 {
-	"message":<MESSAGE>
+	"message":"YOUR_MESSAGE_HERE"
 }
